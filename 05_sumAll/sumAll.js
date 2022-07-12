@@ -1,24 +1,16 @@
-const sumAll = function(a, b) {
-  if (typeof a !== "number" || typeof b !== "number" || a < 0 || b < 0) {
-    return "ERROR";
+const sumAll = function(min, max) {
+  if (typeof min !== "number" || typeof max !== "number") return "ERROR";
+  if (min < 0 || max < 0) return "ERROR";
+  if (min > max) {
+    const temp = min;
+    min = max;
+    max = temp;
   }
-  if (a > b) {
-    min = b;
-    max = a;
-  } else {
-    min = a;
-    max = b;
-  }
-
-  let array = [];
+  let sum = 0;
   for (let i = min; i <= max; i++) {
-    array.push(i);
+    sum+= i;
   }
-  let total = 0;
-  for (num of array) {
-    total+= num;
-  }
-  return total;
+  return sum;
 };
 
 // Do not edit below this line
